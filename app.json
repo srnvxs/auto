@@ -28,7 +28,7 @@
         },
         "CHANNEL_ID": {
             "description": "your channel id in format -10023352648:-100655379 (from channel id:to channel id) if you want to give more channels seperate them with white space",
-            "value": "-1003417020994"
+            "value": "-1002884240030:-1003417020994"
         }
     },
     "buildpacks": [{"url": "heroku/python"}]
