@@ -5,18 +5,16 @@
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
-    format="%(asctime)s - %(lineno)d - %(module)s - %(levelname)s - %(message)s"
+    format='%(asctime)s - %(lineno)d - %(module)s - %(levelname)s - %(message)s'
 )
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-# ❌ REMOVE uvloop (it breaks Pyrogram sync mode on Python 3.11)
-# import uvloop
-# uvloop.install()
+import uvloop
+uvloop.install()
 
-import asyncio
-from pyrogram import Client, idle
 from config import Config
+from pyrogram import Client
 
 
 class ChannelForward(Client, Config):
@@ -27,25 +25,22 @@ class ChannelForward(Client, Config):
             api_id=self.API_ID,
             api_hash=self.API_HASH,
             workers=20,
-            plugins={"root": "Plugins"}
+            plugins={'root': 'Plugins'}
         )
 
     async def start(self):
         await super().start()
         me = await self.get_me()
-        print(f"New session started for {me.first_name} (@{me.username})")
+        print(f"New session started for {me.first_name}({me.username})")
 
     async def stop(self):
         await super().stop()
         print("Session stopped. Bye!!")
 
 
-async def main():
-    app = ChannelForward()
-    await app.start()
-    await idle()      # keeps bot running
-    await app.stop()
+# ✅ Create globally accessible instance
+channelforward = ChannelForward()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    channelforward.run()
