@@ -8,7 +8,7 @@
         "forward"
     ],
     "success_url": "https://telegram.dog/VJ_Botz",
-    "repository": "https://github.com/VJBots/VJ-Auto-Forward-Bot",
+    "repository": "https://github.com/srnvxs/auto",
     "env": {
         "AS_COPY": {
             "description": "set this to true to forward message as copy",
@@ -16,19 +16,19 @@
         },
         "API_HASH": {
             "description": "Get this value from https://my.telegram.org",
-            "value": ""
+            "value": "f03ed7999b31b20920afb08761774c34"
         },
         "API_ID": {
             "description": "Get this value from https://my.telegram.org",
-            "value": ""
+            "value": "29577103"
         },
         "BOT_TOKEN": {
             "description": "Your bot token, as a string. Get this from @BotFather",
-            "value": ""
+            "value": "8426712421:AAH7yV6TWR4zRcWAQqKrOirKlshaUl6uTig"
         },
         "CHANNEL_ID": {
             "description": "your channel id in format -10023352648:-100655379 (from channel id:to channel id) if you want to give more channels seperate them with white space",
-            "value": ""
+            "value": "-1003417020994"
         }
     },
     "buildpacks": [{"url": "heroku/python"}]
